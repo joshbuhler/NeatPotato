@@ -25,6 +25,7 @@ currentY = 0.0
 borderSize = 0.0
 spacing = 1.0
 towerSize = 2.0
+minHeight = 1.0
 
 currentX += borderSize
 currentY += borderSize
@@ -33,7 +34,7 @@ for week in weekGNodes:
     dayRects = week.getElementsByTagName("rect")
     for day in dayRects:
         date = day.getAttribute("data-date")
-        dataLevel = float(day.getAttribute("data-level"))
+        dataLevel = float(day.getAttribute("data-level")) + minHeight
 
         print("Date: " + date + " Level: %2d" % (dataLevel) + " x|y: %2d|%2d" % (currentX, currentY))
         
