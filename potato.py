@@ -43,6 +43,9 @@ for week in weekGNodes:
             align='WORLD',
             location=(currentX, currentY, 0),
             scale=(1, 1, dataLevel))
+                
+        bpy.ops.object.modifier_add(type="BEVEL")
+        bpy.context.object.modifiers["Bevel"].segments = 10
 
         currentY += towerSize
         currentY += spacing
@@ -52,4 +55,3 @@ for week in weekGNodes:
 
     currentX += towerSize
     currentX += spacing
-    
