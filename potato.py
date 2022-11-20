@@ -37,6 +37,8 @@ currentY += borderSize
 
 maxCurrentY = 0.0
 
+applyBevel = False
+
 for week in weekGNodes:
     dayRects = week.getElementsByTagName("rect")
     
@@ -55,8 +57,9 @@ for week in weekGNodes:
             location=(currentX + (towerSize / 2), currentY + (towerSize / 2), 0),
             scale=(1, 1, dataLevel))
                 
-        bpy.ops.object.modifier_add(type="BEVEL")
-        bpy.context.object.modifiers["Bevel"].segments = 10
+        if applyBevel:
+            bpy.ops.object.modifier_add(type="BEVEL")
+            bpy.context.object.modifiers["Bevel"].segments = 10
 
         currentY += towerSize
         currentY += spacing
