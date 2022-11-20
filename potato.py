@@ -27,7 +27,7 @@ currentX = 0.0
 currentY = 0.0
 
 # All units are in meters
-borderSize = 0.0
+borderSize = 1.0
 spacing = 1.0
 towerSize = 2.0
 minHeight = 2.0
