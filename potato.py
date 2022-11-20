@@ -52,7 +52,7 @@ for week in weekGNodes:
         bpy.ops.mesh.primitive_cube_add(size=towerSize,
             enter_editmode=False,
             align='WORLD',
-            location=(currentX, currentY, 0),
+            location=(currentX + (towerSize / 2), currentY + (towerSize / 2), 0),
             scale=(1, 1, dataLevel))
                 
         bpy.ops.object.modifier_add(type="BEVEL")
