@@ -1,3 +1,8 @@
+#import importlib
+
+#importlib.reload(svgparser.svgutils)
+#importlib.reload(svgparser.svgparser)
+
 import bpy
 import os
 import sys
@@ -30,8 +35,14 @@ minHeight = 2.0
 currentX += borderSize
 currentY += borderSize
 
+maxCurrentY = 0.0
+
 for week in weekGNodes:
     dayRects = week.getElementsByTagName("rect")
+    
+    # reset for a new week
+    currentY = borderSize
+    
     for day in dayRects:
         date = day.getAttribute("data-date")
         dataLevel = float(day.getAttribute("data-level")) + minHeight
@@ -49,9 +60,9 @@ for week in weekGNodes:
 
         currentY += towerSize
         currentY += spacing
-
-    # week ended - reset
-    currentY = borderSize
+        
+        if currentY >= maxCurrentY:
+            maxCurrentY = currentY
 
     currentX += towerSize
     currentX += spacing
@@ -60,8 +71,8 @@ for week in weekGNodes:
 bpy.ops.mesh.primitive_cube_add(size=1.0,
     enter_editmode=False,
     align='WORLD',
-    location=(currentX / 2, 0, 0),
-    scale=(currentX, 9, 1))
+    location=(currentX / 2, maxCurrentY / 2, 0),
+    scale=(currentX, maxCurrentY, 1))
     
     
     
