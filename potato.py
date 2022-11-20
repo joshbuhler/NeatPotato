@@ -25,7 +25,7 @@ currentY = 0.0
 borderSize = 0.0
 spacing = 1.0
 towerSize = 2.0
-minHeight = 1.0
+minHeight = 2.0
 
 currentX += borderSize
 currentY += borderSize
@@ -55,3 +55,15 @@ for week in weekGNodes:
 
     currentX += towerSize
     currentX += spacing
+    
+# Put a base on this thing
+bpy.ops.mesh.primitive_cube_add(size=1.0,
+    enter_editmode=False,
+    align='WORLD',
+    location=(currentX / 2, 0, 0),
+    scale=(currentX, 9, 1))
+    
+    
+    
+
+print ("I just think they're neat!")
