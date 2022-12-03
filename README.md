@@ -50,6 +50,15 @@ Just leave the Terminal window open while you work, and you'll be able to see th
 alias blender="/Applications/Blender.app/Contents/MacOS/Blender"
 ```
 
+## Aligning Objects
+
+This script currently will only build the towers of the graph, but does not align them properly. This still needs to be done manually. Once the script has run and the towers are built:
+
+1. Select all objects to be aligned.
+2. Use the `Advanced Align Operations` to align all objects to the Z-axis Min. See screenshot below.
+
+![Align operation screenshot.](images/align_01.png)
+
 ---
 
 [![I just think they're neat.](https://img.youtube.com/vi/DrQqajtiRt4/0.jpg)](https://www.youtube.com/watch?v=DrQqajtiRt4)
