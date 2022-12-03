@@ -11,7 +11,7 @@ from os.path import isfile, join
 
 filePath = "/Users/josh/Projects/stunning-potato/testSvg/graph1.svg"
 
-class StunningPotato:
+class NeatPotato:
 
     def __init__(self, blenderContext, svgFilepath):
         print ("What is it with you and potatoes?")
