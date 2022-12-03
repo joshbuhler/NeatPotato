@@ -42,6 +42,9 @@ class NeatPotato:
 
         applyBevel = False
 
+        currentWeek = 0
+        totalWeeks = len(weekGNodes)
+        
         for week in weekGNodes:
             dayRects = week.getElementsByTagName("rect")
             
@@ -52,7 +55,7 @@ class NeatPotato:
                 date = day.getAttribute("data-date")
                 dataLevel = float(day.getAttribute("data-level")) + minHeight
 
-                print("Date: " + date + " Level: %2d" % (dataLevel) + " x|y: %2d|%2d" % (currentX, currentY))
+                print("Week: %2d" % currentWeek + "/%2d" % totalWeeks + " Date: " + date + " Level: %2d" % (dataLevel) + " x|y: %2d|%2d" % (currentX, currentY))
                 
                 bpy.ops.mesh.primitive_cube_add(size=towerSize,
                     enter_editmode=False,
@@ -72,6 +75,7 @@ class NeatPotato:
 
             currentX += towerSize
             currentX += spacing
+            currentWeek += 1
             
         # Put a base on this thing
         bpy.ops.mesh.primitive_cube_add(size=1.0,
