@@ -75,7 +75,7 @@ bpy.ops.mesh.primitive_cube_add(size=1.0,
     enter_editmode=False,
     align='WORLD',
     location=(currentX / 2, maxCurrentY / 2, 0),
-    scale=(currentX, maxCurrentY, 1))
+    scale=(currentX, maxCurrentY, minHeight))
     
     
     
