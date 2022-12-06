@@ -44,9 +44,16 @@ class NeatPotato:
 
         currentWeek = 0
         totalWeeks = len(weekGNodes)
+
+        sys.stdout.write("[%s]" % (" " * totalWeeks))
+        sys.stdout.flush()
+        sys.stdout.write("\b" * (totalWeeks+1)) # return to start of line, after '['
         
         for week in weekGNodes:
             dayRects = week.getElementsByTagName("rect")
+
+            sys.stdout.write("-")
+            sys.stdout.flush()
             
             # reset for a new week
             currentY = borderSize
@@ -55,7 +62,7 @@ class NeatPotato:
                 date = day.getAttribute("data-date")
                 dataLevel = float(day.getAttribute("data-level")) + minHeight
 
-                print("Week: %2d" % currentWeek + "/%2d" % totalWeeks + " Date: " + date + " Level: %2d" % (dataLevel) + " x|y: %2d|%2d" % (currentX, currentY))
+                # print("Week: %2d" % currentWeek + "/%2d" % totalWeeks + " Date: " + date + " Level: %2d" % (dataLevel) + " x|y: %2d|%2d" % (currentX, currentY))
                 
                 bpy.ops.mesh.primitive_cube_add(size=towerSize,
                     enter_editmode=False,
@@ -76,6 +83,8 @@ class NeatPotato:
             currentX += towerSize
             currentX += spacing
             currentWeek += 1
+
+        sys.stdout.write("]\n") # this ends the progress bar
             
         # Put a base on this thing
         bpy.ops.mesh.primitive_cube_add(size=1.0,
