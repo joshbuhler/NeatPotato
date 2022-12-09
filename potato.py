@@ -34,6 +34,7 @@ class NeatPotato:
         spacing = 1.0
         towerSize = 2.0
         minHeight = 2.0
+        baseHeight = 4.0
 
         currentX += borderSize
         currentY += borderSize
