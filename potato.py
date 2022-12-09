@@ -95,7 +95,13 @@ class NeatPotato:
             enter_editmode=False,
             align='WORLD',
             location=(currentX / 2, maxCurrentY / 2, 0),
-            scale=(currentX, maxCurrentY, minHeight))
+            scale=(currentX, maxCurrentY, baseHeight))
+
+        # Select everything
+        bpy.ops.object.select_all(action="SELECT")
+
+        bpy.ops.object.align_tools(loc_z=True, ref1='0')
+
             
             
             
