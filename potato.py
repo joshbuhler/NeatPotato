@@ -41,7 +41,7 @@ class NeatPotato:
 
         maxCurrentY = 0.0
 
-        applyBevel = False
+        applyBevel = True
 
         currentWeek = 0
         totalWeeks = len(weekGNodes)
@@ -96,6 +96,10 @@ class NeatPotato:
             align='WORLD',
             location=(currentX / 2, maxCurrentY / 2, 0),
             scale=(currentX, maxCurrentY, baseHeight))
+
+        if applyBevel:
+            bpy.ops.object.modifier_add(type="BEVEL")
+            bpy.context.object.modifiers["Bevel"].segments = 10
 
         # Select everything
         bpy.ops.object.select_all(action="SELECT")
