@@ -34,7 +34,7 @@ class NeatPotato:
         spacing = 1.0
         towerSize = 2.0
         minHeight = 2.0
-        baseHeight = 4.0
+        baseHeight = 5.0
 
         currentX += borderSize
         currentY += borderSize
@@ -61,7 +61,7 @@ class NeatPotato:
             
             for day in dayRects:
                 date = day.getAttribute("data-date")
-                dataLevel = float(day.getAttribute("data-level")) + minHeight + baseHeight
+                dataLevel = float(day.getAttribute("data-level")) + minHeight
 
                 # print("Week: %2d" % currentWeek + "/%2d" % totalWeeks + " Date: " + date + " Level: %2d" % (dataLevel) + " x|y: %2d|%2d" % (currentX, currentY))
                 
@@ -100,7 +100,8 @@ class NeatPotato:
         # Select everything
         bpy.ops.object.select_all(action="SELECT")
 
-        bpy.ops.object.align_tools(loc_z=True, ref1='0')
+        bpy.ops.object.align_tools(loc_z=True, ref1='0') # towers on TOP of base
+        #bpy.ops.object.align_tools(loc_z=True, ref1='0', ref2='0') # towers at BOTTOM of base
 
             
             
