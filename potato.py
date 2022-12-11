@@ -30,7 +30,7 @@ class NeatPotato:
         currentY = 0.0
 
         # All units are in meters
-        borderSize = 1.0
+        borderSize = 0.0
         spacing = 1.0
         towerSize = 2.0
         minHeight = 2.0
@@ -90,7 +90,9 @@ class NeatPotato:
 
         sys.stdout.write("]\n") # this ends the progress bar
             
-        # Put a base on this thing
+        # Put a base on this
+        currentX -= spacing
+        maxCurrentY -= spacing
         bpy.ops.mesh.primitive_cube_add(size=1.0,
             enter_editmode=False,
             align='WORLD',
