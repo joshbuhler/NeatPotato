@@ -77,6 +77,7 @@ class NeatPotato:
                 if applyBevel:
                     bpy.ops.object.modifier_add(type="BEVEL")
                     bpy.context.object.modifiers["Bevel"].segments = 10
+                    bpy.context.object.modifiers["Bevel"].width = 0.2
 
                 currentY += towerSize
                 currentY += spacing
@@ -102,6 +103,7 @@ class NeatPotato:
         if applyBevel:
             bpy.ops.object.modifier_add(type="BEVEL")
             bpy.context.object.modifiers["Bevel"].segments = 10
+            bpy.context.object.modifiers["Bevel"].width = 0.2
 
         # Select everything
         bpy.ops.object.select_all(action="SELECT")
